@@ -1,0 +1,205 @@
+/* ===== VARIABLES DE COLOR (se usan en todo el archivo) ===== */
+:root {
+    --fondo: #f6f1e9;          /* fondo de la página */
+    --panel: #ffffff;          /* fondo de las tarjetas */
+    --texto: #26231f;          /* color principal del texto */
+    --texto-suave: #6b655b;    /* textos secundarios */
+    --borde: #ded6c8;          /* color de los bordes */
+    --acento: #1f5f5b;         /* verde azulado: portada y botones */
+    --arena: #f2c879;          /* color claro para detalles */
+    --error: #b3261e;          /* rojo para errores y eliminar */
+    --exito: #2e7d4f;          /* verde para mensajes de éxito */
+}
+/* ===== REINICIO BÁSICO ===== */
+* {
+    box-sizing: border-box;    /* el padding no agranda los elementos */
+    margin: 0;
+    padding: 0;
+}
+/* Hace que al pulsar un enlace del menú la página se desplace suavemente */
+html {
+    scroll-behavior: smooth;
+}
+/* ===== ESTILO GENERAL DE LA PÁGINA ===== */
+body {
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+/* ===== PORTADA ===== */
+.portada {
+    background: var(--acento);
+    color: #fff;
+    text-align: center;
+    padding: 40px 16px 24px;
+}
+.portada h1 {
+    font-size: 2.2rem;
+}
+.lema {
+    color: var(--arena);
+    font-size: 1.15rem;
+}
+.aviso {
+    font-size: 0.8rem;
+    opacity: 0.75;
+    margin-top: 4px;
+}
+/* ===== MENÚ ===== */
+.menu {
+    display: flex;
+    flex-wrap: wrap;           /* en pantallas pequeñas los enlaces bajan de línea */
+    justify-content: center;
+    gap: 8px 20px;
+    margin-top: 20px;
+}
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+.menu a:hover {
+    border-bottom-color: var(--arena);
+}
+/* ===== CONTENEDOR Y SECCIONES ===== */
+.app {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+.seccion {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+.seccion h2 {
+    font-size: 1.4rem;
+    color: var(--acento);
+    margin-bottom: 10px;
+}
+.dato {
+    margin-top: 10px;
+    color: var(--texto-suave);
+}
+.dato strong {
+    font-size: 1.4rem;
+    color: var(--acento);
+}
+/* ===== TARJETAS DE ACTIVIDADES ===== */
+.tarjetas {
+    display: grid;
+    /* columnas automáticas: se acomodan según el ancho disponible */
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+}
+.tarjeta {
+    background: var(--fondo);
+    border-left: 5px solid var(--arena);
+    border-radius: 6px;
+    padding: 14px;
+}
+.tarjeta h3 {
+    font-size: 1.05rem;
+}
+.tarjeta p {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+/* ===== EVENTOS ===== */
+.evento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--borde);
+}
+.evento:last-child {
+    border-bottom: none;
+}
+.detalle {
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+}
+.btn-reservar {
+    padding: 8px 14px;
+    background: none;
+    color: var(--acento);
+    border: 2px solid var(--acento);
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;       /* el texto del botón no se parte */
+}
+/* Evento reservado (clase agregada con JavaScript) */
+.evento.reservado .btn-reservar {
+    background: var(--acento);
+    color: #fff;
+}
+/* ===== FORMULARIO ===== */
+.campo {
+    display: flex;
+    flex-direction: column;    /* etiqueta arriba, campo abajo */
+    gap: 4px;
+    margin-bottom: 12px;
+}
+label {
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+}
+input,
+select {
+    padding: 10px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fff;
+}
+input:focus,
+select:focus {
+    outline: 2px solid var(--acento);
+}
+.mensaje {
+    color: var(--error);
+    font-size: 0.9rem;
+    min-height: 1.4em;         /* evita que el diseño salte al aparecer */
+    margin-bottom: 8px;
+}
+.mensaje.exito {
+    color: var(--exito);
+}  
+.boton {
+    width: 100%;
+    padding: 12px;
+    background: var(--acento);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+/* ===== LISTA DE NUEVOS SOCIOS ===== */
+.lista-socios {
+    list-style: none;
+    margin-top: 16px;
+}
+.lista-socios li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-top: 1px solid var(--borde);
+}
+.lista-socios small {
+    display: block;
+    color: var(--texto-suave);
+}
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: var(--error);
+    cursor: pointer;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asociacion cultural</title>
+    <link rel="stylesheet" href="asociacion_cultural.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="asociacion_cultural.js" defer></script>
+</head>
+<body>
+    <!---------------------------------------->
+    <!--|estructuracion_asociacion_cultural|-->
+    <!---------------------------------------->
+    <main class="app">
+        <!-- SECCIÓN 1: quiénes somos -->
+        <section id="sobre" class="seccion">
+            <h2>Quiénes somos</h2>
+            <p>
+                Somos un grupo de vecinos, artistas y lectores que desde 2012 organiza
+                talleres y encuentros gratuitos para acercar la cultura a todo el barrio.
+            </p>
+            <!-- Dato que JavaScript actualiza cuando alguien se inscribe -->
+            <p class="dato">Socios actuales: <strong id="totalSocios">120</strong></p>
+        </section>
+        <!-- SECCIÓN 2: actividades permanentes -->
+        <section id="actividades" class="seccion">
+            <h2>Actividades</h2>
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <h3>Taller de danza</h3>
+                    <p>Ritmos tradicionales todos los sábados por la mañana.</p>
+                </article>
+                <article class="tarjeta">
+                    <h3>Club de lectura</h3>
+                    <p>Un libro al mes y una conversación abierta para comentarlo.</p>
+                </article>
+                <article class="tarjeta">
+                    <h3>Cine foro</h3>
+                    <p>Películas seleccionadas y debate con el público al terminar.</p>
+                </article>
+            </div>
+        </section>
+        <!-- SECCIÓN 3: próximos eventos (data-id y data-cupos los usa JavaScript) -->
+        <section id="eventos" class="seccion">
+            <h2>Próximos eventos</h2>
+            <article class="evento" data-id="feria" data-cupos="30">
+                <div>
+                    <h3>Feria del libro vecinal</h3>
+                    <p class="detalle">15 de noviembre · Cupos: <span class="cupos"></span></p>
+                </div>
+                <button class="btn-reservar" data-reservar type="button">Reservar cupo</button>
+            </article>
+            <article class="evento" data-id="concierto" data-cupos="50">
+                <div>
+                    <h3>Concierto de música del Caribe</h3>
+                    <p class="detalle">29 de noviembre · Cupos: <span class="cupos"></span></p>
+                </div>
+                <button class="btn-reservar" data-reservar type="button">Reservar cupo</button>
+            </article>
+            <article class="evento" data-id="taller" data-cupos="15">
+                <div>
+                    <h3>Taller de cuentos para niños</h3>
+                    <p class="detalle">6 de diciembre · Cupos: <span class="cupos"></span></p>
+                </div>
+                <button class="btn-reservar" data-reservar type="button">Reservar cupo</button>
+            </article>
+        </section>
+        <!-- SECCIÓN 4: formulario para hacerse socio -->
+        <section id="unete" class="seccion">
+            <h2>Únete a la asociación</h2>
+            <!-- novalidate: la validación la hacemos nosotros con JavaScript -->
+            <form id="formulario" novalidate>
+                <div class="campo">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" maxlength="40" autocomplete="off">
+                </div>
+                <div class="campo">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" autocomplete="off">
+                </div>
+                <div class="campo">
+                    <label for="interes">Actividad de interés</label>
+                    <select id="interes">
+                        <option>Taller de danza</option>
+                        <option>Club de lectura</option>
+                        <option>Cine foro</option>
+                    </select>
+                </div>
+                <!-- Aquí JavaScript escribe los mensajes de error o éxito -->
+                <p id="mensaje" class="mensaje" role="alert"></p>
+                <button type="submit" class="boton">Quiero ser socio</button>
+            </form>
+            <!-- Lista de nuevos socios inscritos (JavaScript la llena) -->
+            <ul id="listaSocios" class="lista-socios"></ul>
+        </section>
+    </main>
+</body>
+</html>
