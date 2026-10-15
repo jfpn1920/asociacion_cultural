@@ -13,17 +13,17 @@
     <!--|estructuracion_asociacion_cultural|-->
     <!---------------------------------------->
     <main class="app">
-        <!-- SECCIÓN 1: quiénes somos -->
         <section id="sobre" class="seccion">
             <h2>Quiénes somos</h2>
             <p>
                 Somos un grupo de vecinos, artistas y lectores que desde 2012 organiza
                 talleres y encuentros gratuitos para acercar la cultura a todo el barrio.
             </p>
-            <!-- Dato que JavaScript actualiza cuando alguien se inscribe -->
             <p class="dato">Socios actuales: <strong id="totalSocios">120</strong></p>
         </section>
-        <!-- SECCIÓN 2: actividades permanentes -->
+        <!------------------------------------>
+        <!--|seccion_actividades_culturales|-->
+        <!------------------------------------>
         <section id="actividades" class="seccion">
             <h2>Actividades</h2>
             <div class="tarjetas">
@@ -41,7 +41,9 @@
                 </article>
             </div>
         </section>
-        <!-- SECCIÓN 3: próximos eventos (data-id y data-cupos los usa JavaScript) -->
+        <!------------------------------>
+        <!--|seccion_proximos_eventos|-->
+        <!------------------------------>
         <section id="eventos" class="seccion">
             <h2>Próximos eventos</h2>
             <article class="evento" data-id="feria" data-cupos="30">
@@ -66,10 +68,11 @@
                 <button class="btn-reservar" data-reservar type="button">Reservar cupo</button>
             </article>
         </section>
-        <!-- SECCIÓN 4: formulario para hacerse socio -->
+        <!-------------------------------->
+        <!--|seccion_inscripcion_socios|-->
+        <!-------------------------------->
         <section id="unete" class="seccion">
             <h2>Únete a la asociación</h2>
-            <!-- novalidate: la validación la hacemos nosotros con JavaScript -->
             <form id="formulario" novalidate>
                 <div class="campo">
                     <label for="nombre">Nombre completo</label>
@@ -87,11 +90,9 @@
                         <option>Cine foro</option>
                     </select>
                 </div>
-                <!-- Aquí JavaScript escribe los mensajes de error o éxito -->
                 <p id="mensaje" class="mensaje" role="alert"></p>
                 <button type="submit" class="boton">Quiero ser socio</button>
             </form>
-            <!-- Lista de nuevos socios inscritos (JavaScript la llena) -->
             <ul id="listaSocios" class="lista-socios"></ul>
         </section>
     </main>
